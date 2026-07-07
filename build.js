@@ -15,7 +15,7 @@ const DIST = path.join(ROOT, 'dist');
 
 const SITE = {
   title: 'Akshath Phillips',
-  subtitle: 'Software Engineer | Washington, DC',
+  subtitle: 'Husband. Dad. Tinkers with software.',
   url: '',
 };
 
@@ -162,39 +162,45 @@ for (const f of fs.readdirSync(path.join(ROOT, 'content'))) {
 }
 fs.cpSync(path.join(ROOT, 'content', 'glimpses'), path.join(DIST, 'content', 'glimpses'), { recursive: true });
 
-// posts
+// posts — optional `section: avi` in frontmatter puts a post under /writing/avi/
 const posts = fs
   .readdirSync(path.join(ROOT, 'content', 'posts'))
   .filter((f) => f.endsWith('.md'))
   .map((f) => {
     const { meta, body } = frontmatter(fs.readFileSync(path.join(ROOT, 'content', 'posts', f), 'utf8'));
     const slug = f.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
-    return { slug, meta, body };
+    const section = meta.section === 'avi' ? 'avi' : 'software';
+    return { slug, meta, body, section, path: section === 'avi' ? `avi/${slug}` : slug };
   })
   .sort((a, b) => (a.meta.date < b.meta.date ? 1 : -1));
 
+const softwarePosts = posts.filter((p) => p.section === 'software');
+const aviPosts = posts.filter((p) => p.section === 'avi');
+
 for (const post of posts) {
-  const dir = path.join(DIST, 'writing', post.slug);
+  const dir = path.join(DIST, 'writing', post.path);
+  const depth = post.path.split('/').length + 1;
   fs.mkdirSync(dir, { recursive: true });
+  const backLabel = post.section === 'avi' ? '← all letters to Avi' : '← all writing';
   const content = `
 <article class="post">
   <h1 class="post-title">${post.meta.title}</h1>
   <p class="post-date">${fmtDate(post.meta.date)}</p>
   ${markdown(post.body)}
-  <p class="post-back"><a href="../index.html">← all writing</a></p>
+  <p class="post-back"><a href="../index.html">${backLabel}</a></p>
 </article>`;
   fs.writeFileSync(
     path.join(dir, 'index.html'),
-    page({ title: post.meta.title, nav: 'writing', content, depth: 2, description: post.meta.description || '' })
+    page({ title: post.meta.title, nav: 'writing', content, depth, description: post.meta.description || '' })
   );
 }
 
-const postList = (list) =>
+const postList = (list, base) =>
   `<ul class="post-list">${list
     .map(
       (p) => `
   <li class="post-list-item">
-    <a class="post-list-title" href="writing/${p.slug}/index.html">${p.meta.title}</a>
+    <a class="post-list-title" href="${base}writing/${p.path}/index.html">${p.meta.title}</a>
     <span class="post-list-date">${fmtDate(p.meta.date)}</span>
     ${p.meta.description ? `<p class="post-list-desc">${p.meta.description}</p>` : ''}
   </li>`
@@ -208,7 +214,29 @@ fs.writeFileSync(
     title: 'Writing',
     nav: 'writing',
     depth: 1,
-    content: `<h1 class="page-title">Writing</h1>\n${postList(posts).replace(/href="writing\//g, 'href="')}`,
+    content: `
+<h1 class="page-title">Writing</h1>
+<p class="page-lede">Things I've built and what they taught me — written for humans, not just engineers.</p>
+${postList(softwarePosts, '../')}
+<section class="avi-callout">
+  <h2 class="section-title">For Avi</h2>
+  <p>I also write letters to my daughter. <a href="avi/index.html">They live here →</a></p>
+</section>`,
+  })
+);
+
+// avi index
+fs.writeFileSync(
+  path.join(DIST, 'writing', 'avi', 'index.html'),
+  page({
+    title: 'For Avi',
+    nav: 'writing',
+    depth: 2,
+    content: `
+<h1 class="page-title">For Avi</h1>
+<p class="page-lede">Letters to my daughter — for her to read whenever she's ready.</p>
+${postList(aviPosts, '../../')}
+<p class="post-back"><a href="../index.html">← all writing</a></p>`,
   })
 );
 
@@ -222,11 +250,12 @@ fs.writeFileSync(
 <section class="intro">
   <p>Hi, I'm Akshath. This is my corner of the internet — not a résumé, not a portfolio.
   I write about my life and the things I build, keep <a href="glimpses.html">glimpses</a> of
-  what I've been up to, and hoard <a href="bookmarks.html">bookmarks</a> worth keeping.</p>
+  what I've been up to, and hoard <a href="bookmarks.html">bookmarks</a> worth keeping.
+  There's also a shelf of <a href="writing/avi/index.html">letters for my daughter, Avi</a>.</p>
 </section>
 <section>
   <h2 class="section-title">Recent writing</h2>
-  ${postList(posts.slice(0, 5))}
+  ${postList(softwarePosts.slice(0, 5), '')}
 </section>`,
   })
 );

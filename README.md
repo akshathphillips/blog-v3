@@ -37,6 +37,10 @@ Markdown body. Supports headings, lists, links, images, code blocks, blockquotes
 
 Then `./scripts/deploy.sh`. The post gets its own page at `/writing/some-slug/`.
 
+Add `section: avi` to the frontmatter to file it under **For Avi** (letters to my
+daughter) instead — it gets a page at `/writing/avi/some-slug/` and stays out of
+the main writing list and home page.
+
 ## Posting a glimpse (no laptop needed)
 
 Glimpses and bookmarks are fetched at runtime from JSON in the bucket, so you can

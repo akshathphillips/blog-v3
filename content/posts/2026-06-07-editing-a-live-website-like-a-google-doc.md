@@ -1,6 +1,6 @@
 ---
 title: Editing a live website like a Google Doc
-date: 2026-07-05
+date: 2026-06-07
 description: A pattern I keep reaching for — static pages that fetch their content from JSON in the bucket.
 ---
 
