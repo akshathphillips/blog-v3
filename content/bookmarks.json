@@ -1,0 +1,37 @@
+[
+  {
+    "category": "Cool projects",
+    "links": [
+      {
+        "title": "anime.js",
+        "url": "https://animejs.com",
+        "note": "The animation library I keep coming back to — used it for a scroll-driven hero recently."
+      },
+      {
+        "title": "Bartosz Ciechanowski — interactive essays",
+        "url": "https://ciechanow.ski",
+        "note": "The gold standard for explaining how things work. The GPS and mechanical watch ones are unreal."
+      }
+    ]
+  },
+  {
+    "category": "Recipes",
+    "links": [
+      {
+        "title": "Serious Eats — Food Lab",
+        "url": "https://www.seriouseats.com/the-food-lab",
+        "note": "Recipes that explain the why, not just the what."
+      }
+    ]
+  },
+  {
+    "category": "Rabbit holes",
+    "links": [
+      {
+        "title": "Maps of every place",
+        "url": "https://www.openstreetmap.org",
+        "note": "Placeholder — replace these starter bookmarks with your own by editing content/bookmarks.json."
+      }
+    ]
+  }
+]

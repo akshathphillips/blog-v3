@@ -1,0 +1,17 @@
+[
+  {
+    "image": "placeholder-1.svg",
+    "caption": "This could be a photo from your day.",
+    "date": "July 2026"
+  },
+  {
+    "image": "placeholder-2.svg",
+    "caption": "Drop images in content/glimpses/ and list them here.",
+    "date": "July 2026"
+  },
+  {
+    "image": "placeholder-3.svg",
+    "caption": "Or upload straight to the bucket — no rebuild needed.",
+    "date": "July 2026"
+  }
+]
