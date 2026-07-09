@@ -29,8 +29,7 @@
     "links": [
       {
         "title": "Maps of every place",
-        "url": "https://www.openstreetmap.org",
-        "note": "Placeholder — replace these starter bookmarks with your own by editing content/bookmarks.json."
+        "url": "https://www.openstreetmap.org"
       }
     ]
   }

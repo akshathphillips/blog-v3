@@ -14,6 +14,10 @@ if (glimpseGrid) {
   fetch(glimpseGrid.dataset.src)
     .then((r) => r.json())
     .then((items) => {
+      if (!items.length) {
+        glimpseGrid.innerHTML = '<p class="coming-soon">Coming soon…</p>';
+        return;
+      }
       glimpseGrid.innerHTML = items
         .map(
           (g) => `
