@@ -19,6 +19,16 @@ const SITE = {
   url: '',
 };
 
+// Cloudflare Web Analytics beacon token (free, cookieless).
+// Set CF_BEACON_TOKEN in the environment, or drop it in a gitignored
+// `analytics.token` file. Absent = no beacon emitted (site is unchanged).
+const ANALYTICS_TOKEN = (() => {
+  if (process.env.CF_BEACON_TOKEN) return process.env.CF_BEACON_TOKEN.trim();
+  const f = path.join(ROOT, 'analytics.token');
+  if (fs.existsSync(f)) return fs.readFileSync(f, 'utf8').trim();
+  return '';
+})();
+
 /* ---------------- markdown ---------------- */
 
 function escapeHtml(s) {
@@ -133,9 +143,15 @@ ${description ? `<meta name="description" content="${escapeHtml(description)}">`
 ${content}
 </main>
 <footer class="site-footer">
-  <p>© ${new Date().getFullYear()} Akshath Phillips · built with a <a href="https://github.com/akshathphillips/blog-v3">little script</a>, served from S3</p>
+  <p>© ${new Date().getFullYear()} Akshath Phillips · built with a <a href="https://github.com/akshathphillips/blog-v3">little script</a>, served from S3${
+    ANALYTICS_TOKEN ? ' · privacy-friendly, cookieless analytics' : ''
+  }</p>
 </footer>
-<script src="${p}assets/site.js"></script>
+<script src="${p}assets/site.js"></script>${
+    ANALYTICS_TOKEN
+      ? `\n<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${ANALYTICS_TOKEN}"}'></script>`
+      : ''
+  }
 </body>
 </html>`;
 }

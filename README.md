@@ -53,6 +53,23 @@ update them from the AWS console without rebuilding:
 Same for bookmarks — edit `content/bookmarks.json`. (Mirror the change into the
 repo copy next time you're at a keyboard so a redeploy doesn't clobber it.)
 
+## Analytics (Cloudflare Web Analytics — free, cookieless)
+
+Visitor stats (page views, top pages, referrers, countries — aggregate, no cookies,
+no raw IPs) come from Cloudflare Web Analytics. The build injects the beacon only
+when a token is present, so the site is unchanged until you add one.
+
+One-time setup:
+
+1. Sign in at https://dash.cloudflare.com → **Analytics & Logs → Web Analytics → Add a site**.
+2. Enter the site URL. Choose the **JS snippet** option (no need to move DNS).
+3. Copy the token from the snippet (the `"token": "…"` value).
+4. Save it locally: `echo 'YOUR_TOKEN' > analytics.token` (gitignored), **or** pass it
+   inline at deploy time: `CF_BEACON_TOKEN=YOUR_TOKEN ./scripts/deploy.sh`.
+5. Deploy. The dashboard populates within a few minutes.
+
+To turn it off, remove `analytics.token` (or the env var) and redeploy.
+
 ## Develop locally
 
 ```
