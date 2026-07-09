@@ -282,7 +282,7 @@ fs.writeFileSync(
     <span class="now-meta">as of ${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
   </div>
   <ul class="now-list">
-    <li><span class="now-tag">Body</span><span class="now-text">Strength training for my ladies — chasing 15% body fat by 35.</span></li>
+    <li><span class="now-tag">Body</span><span class="now-text">Strength training for my ladies — chasing ~20% body fat by 35.</span></li>
     <li><span class="now-tag">Home</span><span class="now-text">Navigating the teachable twos with Avi. Humbling, mostly.</span></li>
     <li><span class="now-tag">Work</span><span class="now-text">Putting AI to real work in products at Clarivate.</span></li>
   </ul>
