@@ -15,7 +15,7 @@ const DIST = path.join(ROOT, 'dist');
 
 const SITE = {
   title: 'Akshath Phillips',
-  subtitle: 'Husband. Dad. Tinkers with software.',
+  subtitle: 'Husband. Dad. Tinkers with software when the toddler allows.',
   url: '',
 };
 
@@ -276,12 +276,15 @@ fs.writeFileSync(
   There's also a shelf of <a href="writing/avi/index.html">letters for my daughter, Avi</a>.</p>
 </section>
 <section class="now">
-  <h2 class="section-title">Now</h2>
-  <p class="now-meta">What I'm focused on — as of ${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
+  <div class="now-head">
+    <span class="now-dot" aria-hidden="true"></span>
+    <h2 class="section-title">Now</h2>
+    <span class="now-meta">as of ${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
+  </div>
   <ul class="now-list">
-    <li>Strength training — chasing 15% body fat by my 35th birthday.</li>
-    <li>Navigating the teachable twos with my daughter, Avi.</li>
-    <li>Leading AI-powered development and applications at Clarivate.</li>
+    <li><span class="now-tag">Body</span><span class="now-text">Strength training — chasing 15% body fat by my 35th birthday.</span></li>
+    <li><span class="now-tag">Home</span><span class="now-text">Navigating the teachable twos with my daughter, Avi.</span></li>
+    <li><span class="now-tag">Work</span><span class="now-text">Leading AI-powered development and applications at Clarivate.</span></li>
   </ul>
 </section>
 <section>
