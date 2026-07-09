@@ -200,8 +200,8 @@ a:hover { text-decoration: underline; }
 .post pre code { background: none; padding: 0; }
 .post-back { margin-top: 48px; }
 
-/* avi callout on writing index */
-.avi-callout {
+/* shelf callouts on writing index (Strength, For Avi) */
+.writing-callout {
   margin-top: 48px;
   padding: 20px 24px;
   background: var(--surface);
@@ -209,8 +209,9 @@ a:hover { text-decoration: underline; }
   border-left: 3px solid var(--accent);
   border-radius: 8px;
 }
-.avi-callout .section-title { margin: 0 0 6px; }
-.avi-callout p { margin: 0; color: var(--text-soft); }
+.writing-callout + .writing-callout { margin-top: 16px; }
+.writing-callout .section-title { margin: 0 0 6px; }
+.writing-callout p { margin: 0; color: var(--text-soft); }
 
 /* glimpses */
 .glimpse-grid {

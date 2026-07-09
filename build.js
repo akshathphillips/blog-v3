@@ -178,9 +178,10 @@ for (const f of fs.readdirSync(path.join(ROOT, 'content'))) {
 }
 fs.cpSync(path.join(ROOT, 'content', 'glimpses'), path.join(DIST, 'content', 'glimpses'), { recursive: true });
 
-// posts — frontmatter `section:` sorts a post into life | software | avi
-// (default: software). `avi` posts are nested under /writing/avi/; the rest
-// stay flat at /writing/<slug>/ and are just grouped visually on the index.
+// posts — frontmatter `section:` sorts a post into life | software | avi | strength
+// (default: software). `avi` and `strength` are their own shelves nested under
+// /writing/<section>/; life + software stay flat and are grouped on the index.
+const NESTED = ['avi', 'strength'];
 const posts = fs
   .readdirSync(path.join(ROOT, 'content', 'posts'))
   .filter((f) => f.endsWith('.md'))
@@ -188,21 +189,27 @@ const posts = fs
     const { meta, body } = frontmatter(fs.readFileSync(path.join(ROOT, 'content', 'posts', f), 'utf8'));
     const slug = f.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     const raw = (meta.section || 'software').toLowerCase();
-    const section = raw === 'avi' ? 'avi' : raw === 'life' ? 'life' : 'software';
-    return { slug, meta, body, section, path: section === 'avi' ? `avi/${slug}` : slug };
+    const section = ['avi', 'life', 'strength'].includes(raw) ? raw : 'software';
+    return { slug, meta, body, section, path: NESTED.includes(section) ? `${section}/${slug}` : slug };
   })
   .sort((a, b) => (a.meta.date < b.meta.date ? 1 : -1));
 
 const lifePosts = posts.filter((p) => p.section === 'life');
 const softwarePosts = posts.filter((p) => p.section === 'software');
 const aviPosts = posts.filter((p) => p.section === 'avi');
-const recentPosts = posts.filter((p) => p.section !== 'avi'); // life + software, for home
+const strengthPosts = posts.filter((p) => p.section === 'strength');
+const recentPosts = posts.filter((p) => p.section === 'life' || p.section === 'software'); // for home
 
 for (const post of posts) {
   const dir = path.join(DIST, 'writing', post.path);
   const depth = post.path.split('/').length + 1;
   fs.mkdirSync(dir, { recursive: true });
-  const backLabel = post.section === 'avi' ? '← all letters to Avi' : '← all writing';
+  const backLabel =
+    post.section === 'avi'
+      ? '← all letters to Avi'
+      : post.section === 'strength'
+      ? '← strength journal'
+      : '← all writing';
   const content = `
 <article class="post">
   <h1 class="post-title">${post.meta.title}</h1>
@@ -240,7 +247,11 @@ fs.writeFileSync(
 <p class="page-lede">Stories from my life, and things I've built — written for humans, not just engineers.</p>
 ${lifePosts.length ? `<h2 class="section-title">Life</h2>\n${postList(lifePosts, '../')}` : ''}
 ${softwarePosts.length ? `<h2 class="section-title">Software / Science</h2>\n${postList(softwarePosts, '../')}` : ''}
-<section class="avi-callout">
+<section class="writing-callout">
+  <h2 class="section-title">Strength journal</h2>
+  <p>A week-by-week training log, mostly for me. <a href="strength/index.html">Follow along →</a></p>
+</section>
+<section class="writing-callout">
   <h2 class="section-title">For Avi</h2>
   <p>I also write letters to my daughter. <a href="avi/index.html">They live here →</a></p>
 </section>`,
@@ -258,6 +269,22 @@ fs.writeFileSync(
 <h1 class="page-title">For Avi</h1>
 <p class="page-lede">Letters to my daughter — for her to read whenever she's ready.</p>
 ${postList(aviPosts, '../../')}
+<p class="post-back"><a href="../index.html">← all writing</a></p>`,
+  })
+);
+
+// strength index
+fs.mkdirSync(path.join(DIST, 'writing', 'strength'), { recursive: true });
+fs.writeFileSync(
+  path.join(DIST, 'writing', 'strength', 'index.html'),
+  page({
+    title: 'Strength journal',
+    nav: 'writing',
+    depth: 2,
+    content: `
+<h1 class="page-title">Strength journal</h1>
+<p class="page-lede">A week-by-week training log — reps, wins, and honest notes on the way to ~20% by 35.</p>
+${strengthPosts.length ? postList(strengthPosts, '../../') : '<p class="coming-soon">First week coming soon…</p>'}
 <p class="post-back"><a href="../index.html">← all writing</a></p>`,
   })
 );
