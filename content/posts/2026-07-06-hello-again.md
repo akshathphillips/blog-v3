@@ -1,6 +1,7 @@
 ---
 title: Hello, again
 date: 2026-07-06
+section: life
 description: Third time's the charm — why this site exists and what it's for.
 ---
 

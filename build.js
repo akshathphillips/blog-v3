@@ -178,20 +178,25 @@ for (const f of fs.readdirSync(path.join(ROOT, 'content'))) {
 }
 fs.cpSync(path.join(ROOT, 'content', 'glimpses'), path.join(DIST, 'content', 'glimpses'), { recursive: true });
 
-// posts — optional `section: avi` in frontmatter puts a post under /writing/avi/
+// posts — frontmatter `section:` sorts a post into life | software | avi
+// (default: software). `avi` posts are nested under /writing/avi/; the rest
+// stay flat at /writing/<slug>/ and are just grouped visually on the index.
 const posts = fs
   .readdirSync(path.join(ROOT, 'content', 'posts'))
   .filter((f) => f.endsWith('.md'))
   .map((f) => {
     const { meta, body } = frontmatter(fs.readFileSync(path.join(ROOT, 'content', 'posts', f), 'utf8'));
     const slug = f.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
-    const section = meta.section === 'avi' ? 'avi' : 'software';
+    const raw = (meta.section || 'software').toLowerCase();
+    const section = raw === 'avi' ? 'avi' : raw === 'life' ? 'life' : 'software';
     return { slug, meta, body, section, path: section === 'avi' ? `avi/${slug}` : slug };
   })
   .sort((a, b) => (a.meta.date < b.meta.date ? 1 : -1));
 
+const lifePosts = posts.filter((p) => p.section === 'life');
 const softwarePosts = posts.filter((p) => p.section === 'software');
 const aviPosts = posts.filter((p) => p.section === 'avi');
+const recentPosts = posts.filter((p) => p.section !== 'avi'); // life + software, for home
 
 for (const post of posts) {
   const dir = path.join(DIST, 'writing', post.path);
@@ -232,8 +237,9 @@ fs.writeFileSync(
     depth: 1,
     content: `
 <h1 class="page-title">Writing</h1>
-<p class="page-lede">Things I've built and what they taught me — written for humans, not just engineers.</p>
-${postList(softwarePosts, '../')}
+<p class="page-lede">Stories from my life, and things I've built — written for humans, not just engineers.</p>
+${lifePosts.length ? `<h2 class="section-title">Life</h2>\n${postList(lifePosts, '../')}` : ''}
+${softwarePosts.length ? `<h2 class="section-title">Software / Science</h2>\n${postList(softwarePosts, '../')}` : ''}
 <section class="avi-callout">
   <h2 class="section-title">For Avi</h2>
   <p>I also write letters to my daughter. <a href="avi/index.html">They live here →</a></p>
@@ -269,9 +275,18 @@ fs.writeFileSync(
   what I've been up to, and hoard <a href="bookmarks.html">bookmarks</a> worth keeping.
   There's also a shelf of <a href="writing/avi/index.html">letters for my daughter, Avi</a>.</p>
 </section>
+<section class="now">
+  <h2 class="section-title">Now</h2>
+  <p class="now-meta">What I'm focused on — as of ${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</p>
+  <ul class="now-list">
+    <li>Strength training — chasing 15% body fat by my 35th birthday.</li>
+    <li>Navigating the teachable twos with my daughter, Avi.</li>
+    <li>Leading AI-powered development and applications at Clarivate.</li>
+  </ul>
+</section>
 <section>
   <h2 class="section-title">Recent writing</h2>
-  ${postList(softwarePosts.slice(0, 5), '')}
+  ${postList(recentPosts.slice(0, 5), '')}
 </section>`,
   })
 );
