@@ -3,6 +3,7 @@ title: Hello, again
 date: 2026-07-06
 section: life
 description: Third time's the charm — why this site exists and what it's for.
+tags: meta, personal, writing
 ---
 
 This is the third version of my website, and the first one I actually expect to keep.

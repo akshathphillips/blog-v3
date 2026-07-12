@@ -2,6 +2,7 @@
 title: An assembly line for AI enrichment
 date: 2026-05-15
 description: Turning one giant, fragile AI job into four small workers that can't take each other down.
+tags: ai, architecture, pipelines, systems, backend
 ---
 
 We had a mountain of records that needed something only an AI could add — call it *enrichment*: read the thing, understand it, attach the summary or the label or the extracted detail that makes it useful. Tens of thousands of them, more arriving daily.

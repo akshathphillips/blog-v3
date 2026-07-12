@@ -2,6 +2,7 @@
 title: Editing a live website like a Google Doc
 date: 2026-06-07
 description: A pattern I keep reaching for — static pages that fetch their content from JSON in the bucket.
+tags: aws, s3, static-sites, architecture, web
 ---
 
 I recently shipped a marketing site for a family venture, and the constraint that shaped it was simple: the people updating the site would not be running `npm run build`. Ever.

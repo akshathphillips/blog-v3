@@ -171,6 +171,30 @@ a:hover { text-decoration: underline; }
 .post-list-date { margin-left: 10px; font-size: 0.85rem; color: var(--text-soft); }
 .post-list-desc { margin: 6px 0 0; color: var(--text-soft); }
 
+/* tags */
+.post-tags,
+.post-list-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.post-tags { margin: -18px 0 32px; }
+.post-list-tags { margin: 8px 0 0; }
+.tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--accent-strong);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+.post-list-tags .tag { font-size: 0.68rem; }
+
 /* post page */
 .post-title { font-size: 2.4rem; font-weight: 300; line-height: 1.2; margin: 0; }
 .post-date { color: var(--text-soft); font-size: 0.9rem; margin: 8px 0 32px; }

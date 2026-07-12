@@ -190,7 +190,11 @@ const posts = fs
     const slug = f.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
     const raw = (meta.section || 'software').toLowerCase();
     const section = ['avi', 'life', 'strength'].includes(raw) ? raw : 'software';
-    return { slug, meta, body, section, path: NESTED.includes(section) ? `${section}/${slug}` : slug };
+    const tags = (meta.tags || '')
+      .split(',')
+      .map((t) => t.trim())
+      .filter(Boolean);
+    return { slug, meta, body, section, tags, path: NESTED.includes(section) ? `${section}/${slug}` : slug };
   })
   .sort((a, b) => (a.meta.date < b.meta.date ? 1 : -1));
 
@@ -199,6 +203,9 @@ const softwarePosts = posts.filter((p) => p.section === 'software');
 const aviPosts = posts.filter((p) => p.section === 'avi');
 const strengthPosts = posts.filter((p) => p.section === 'strength');
 const recentPosts = posts.filter((p) => p.section === 'life' || p.section === 'software'); // for home
+
+const tagList = (tags, cls) =>
+  tags.length ? `<ul class="${cls}">${tags.map((t) => `<li class="tag">${t}</li>`).join('')}</ul>` : '';
 
 for (const post of posts) {
   const dir = path.join(DIST, 'writing', post.path);
@@ -214,6 +221,7 @@ for (const post of posts) {
 <article class="post">
   <h1 class="post-title">${post.meta.title}</h1>
   <p class="post-date">${fmtDate(post.meta.date)}</p>
+  ${tagList(post.tags, 'post-tags')}
   ${markdown(post.body)}
   <p class="post-back"><a href="../index.html">${backLabel}</a></p>
 </article>`;
@@ -231,6 +239,7 @@ const postList = (list, base) =>
     <a class="post-list-title" href="${base}writing/${p.path}/index.html">${p.meta.title}</a>
     <span class="post-list-date">${fmtDate(p.meta.date)}</span>
     ${p.meta.description ? `<p class="post-list-desc">${p.meta.description}</p>` : ''}
+    ${tagList(p.tags, 'post-list-tags')}
   </li>`
     )
     .join('')}</ul>`;
@@ -352,4 +361,39 @@ fs.writeFileSync(
   page({ title: 'Not found', nav: '', content: `<h1 class="page-title">404</h1><p>Nothing here. <a href="index.html">Go home.</a></p>` })
 );
 
-console.log(`Built ${posts.length} post(s) → dist/`);
+// search index — one JSON of every searchable item (posts + bookmarks) with
+// its tags and plain text, ready for a client-side search feature to fetch.
+const stripMd = (s) =>
+  s
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // links → text
+    .replace(/[#>*`_]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+const bookmarkData = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'bookmarks.json'), 'utf8'));
+
+const searchIndex = [
+  ...posts.map((p) => ({
+    type: 'post',
+    title: p.meta.title,
+    url: `/writing/${p.path}/`,
+    section: p.section,
+    date: p.meta.date,
+    description: p.meta.description || '',
+    tags: p.tags,
+    text: stripMd(p.body),
+  })),
+  ...bookmarkData.flatMap((cat) =>
+    cat.links.map((l) => ({
+      type: 'bookmark',
+      title: l.title,
+      url: l.url,
+      category: cat.category,
+      description: l.note || '',
+      tags: l.tags || [],
+    }))
+  ),
+];
+fs.writeFileSync(path.join(DIST, 'content', 'search-index.json'), JSON.stringify(searchIndex, null, 2));
+
+console.log(`Built ${posts.length} post(s), ${searchIndex.length} search entries → dist/`);

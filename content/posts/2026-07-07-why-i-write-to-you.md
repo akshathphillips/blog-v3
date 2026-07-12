@@ -3,6 +3,7 @@ title: Why I write to you
 date: 2026-07-07
 section: avi
 description: The first letter — what this little shelf is for.
+tags: avi, fatherhood, letters
 ---
 
 Avi,

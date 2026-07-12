@@ -5,12 +5,14 @@
       {
         "title": "anime.js",
         "url": "https://animejs.com",
-        "note": "The animation library I keep coming back to — used it for a scroll-driven hero recently."
+        "note": "The animation library I keep coming back to — used it for a scroll-driven hero recently.",
+        "tags": ["animation", "javascript", "web", "tools"]
       },
       {
         "title": "Bartosz Ciechanowski — interactive essays",
         "url": "https://ciechanow.ski",
-        "note": "The gold standard for explaining how things work. The GPS and mechanical watch ones are unreal."
+        "note": "The gold standard for explaining how things work. The GPS and mechanical watch ones are unreal.",
+        "tags": ["writing", "interactive", "learning", "inspiration"]
       }
     ]
   },
@@ -20,7 +22,8 @@
       {
         "title": "Serious Eats — Food Lab",
         "url": "https://www.seriouseats.com/the-food-lab",
-        "note": "Recipes that explain the why, not just the what."
+        "note": "Recipes that explain the why, not just the what.",
+        "tags": ["cooking", "recipes", "food"]
       }
     ]
   },
@@ -29,7 +32,8 @@
     "links": [
       {
         "title": "Maps of every place",
-        "url": "https://www.openstreetmap.org"
+        "url": "https://www.openstreetmap.org",
+        "tags": ["maps", "geography", "rabbit-hole"]
       }
     ]
   }

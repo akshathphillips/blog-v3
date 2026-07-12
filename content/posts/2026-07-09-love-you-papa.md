@@ -3,6 +3,7 @@ title: Love you, papa
 date: 2026-07-09
 section: avi
 description: A twin mattress in Richmond, Goodnight Moon, and the first time you said it on your own.
+tags: avi, fatherhood, letters
 ---
 
 You were supposed to be falling asleep.

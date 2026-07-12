@@ -2,6 +2,7 @@
 title: The same battle, every time
 date: 2026-07-07
 description: Why I built my game engine to be deterministic — same inputs, same battle, down to the last frame.
+tags: game-dev, determinism, simulation, ios
 ---
 
 The heart of the game I'm building is a simulation: units move, fight, and die on a battlefield. Early on I made a decision that shaped everything after it — the simulation is *deterministic*. Given the same starting conditions and the same player commands, the battle plays out identically, every single time, on every device, down to the last frame.

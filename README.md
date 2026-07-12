@@ -37,9 +37,27 @@ Markdown body. Supports headings, lists, links, images, code blocks, blockquotes
 
 Then `./scripts/deploy.sh`. The post gets its own page at `/writing/some-slug/`.
 
-Add `section: avi` to the frontmatter to file it under **For Avi** (letters to my
-daughter) instead — it gets a page at `/writing/avi/some-slug/` and stays out of
-the main writing list and home page.
+Add `section:` to the frontmatter to file a post elsewhere:
+`avi` (letters to my daughter, `/writing/avi/…`), `strength` (week-by-week training
+journal, `/writing/strength/…`), or `life` / `software` (default) which group on the
+main writing index. `avi` and `strength` are their own shelves and stay off the home page.
+
+Add `tags:` (comma-separated) to any post's frontmatter to tag it — they render as
+pills and feed the search index (below).
+
+## Tags & search index
+
+Every post and bookmark carries `tags`. On each build, `build.js` writes
+`dist/content/search-index.json` — one flat array of every searchable item:
+
+```json
+{ "type": "post", "title": "…", "url": "/writing/…/", "section": "strength",
+  "date": "2026-07-06", "description": "…", "tags": ["strength","goals"], "text": "plain body…" }
+```
+
+Bookmarks get `{ "type": "bookmark", "title", "url", "category", "description", "tags" }`.
+This file is the ready-made backend for a future client-side search feature — fetch it,
+filter by `tags`/`text`, done. No server needed.
 
 ## Posting a glimpse (no laptop needed)
 

@@ -50,6 +50,11 @@ if (bookmarkList) {
           <div class="bookmark">
             <a href="${l.url}" target="_blank" rel="noopener">${l.title}</a>
             ${l.note ? `<p>${l.note}</p>` : ''}
+            ${
+              l.tags && l.tags.length
+                ? `<ul class="post-list-tags">${l.tags.map((t) => `<li class="tag">${t}</li>`).join('')}</ul>`
+                : ''
+            }
           </div>`
             )
             .join('')}

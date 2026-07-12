@@ -3,6 +3,7 @@ title: Week 1 — the starting line
 date: 2026-07-06
 section: strength
 description: Kicking off the log — why I'm doing this, the plan, and where I'm starting from.
+tags: strength, training, fitness, goals
 ---
 
 Starting a training log, mostly to keep myself honest. Motivation is a liar; a record isn't. If I write down what I actually did each week, future me can't pretend the work happened when it didn't — and can't forget it when it did.

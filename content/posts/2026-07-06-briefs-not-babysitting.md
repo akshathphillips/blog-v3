@@ -2,6 +2,7 @@
 title: Briefs, not babysitting
 date: 2026-07-06
 description: How I build software with an AI agent doing the hands-on work — by writing briefs instead of sitting at the keyboard.
+tags: ai, agents, workflow, productivity
 ---
 
 I'm building an iOS game, and I'm not the one typing most of it. An AI agent does the hands-on work; I playtest on weekends and decide what happens next. Getting that arrangement to actually function taught me more about delegation than about code.
