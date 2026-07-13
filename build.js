@@ -137,6 +137,7 @@ ${description ? `<meta name="description" content="${escapeHtml(description)}">`
     ${navItem('writing/index.html', 'Writing', 'writing')}
     ${navItem('glimpses.html', 'Glimpses', 'glimpses')}
     ${navItem('bookmarks.html', 'Bookmarks', 'bookmarks')}
+    ${navItem('search.html', 'Search', 'search')}
   </nav>
 </header>
 <main class="site-main">
@@ -204,8 +205,12 @@ const aviPosts = posts.filter((p) => p.section === 'avi');
 const strengthPosts = posts.filter((p) => p.section === 'strength');
 const recentPosts = posts.filter((p) => p.section === 'life' || p.section === 'software'); // for home
 
+// tags link into the search page filtered by that tag (root-relative, works at any depth)
+const tagHref = (t) => `/search.html?tag=${encodeURIComponent(t)}`;
 const tagList = (tags, cls) =>
-  tags.length ? `<ul class="${cls}">${tags.map((t) => `<li class="tag">${t}</li>`).join('')}</ul>` : '';
+  tags.length
+    ? `<ul class="${cls}">${tags.map((t) => `<li><a class="tag" href="${tagHref(t)}">${t}</a></li>`).join('')}</ul>`
+    : '';
 
 for (const post of posts) {
   const dir = path.join(DIST, 'writing', post.path);
@@ -320,6 +325,7 @@ fs.writeFileSync(
   <ul class="now-list">
     <li><span class="now-tag">Body</span><span class="now-text">Strength training for my ladies — working towards ~20% body fat by 35.</span></li>
     <li><span class="now-tag">Home</span><span class="now-text">Navigating the teachable twos with Avi. Humbling, mostly.</span></li>
+    <li><span class="now-tag">Tinker</span><span class="now-text">Building YAFA — a little workout app that remembers your lifts so you don't have to.</span></li>
     <li><span class="now-tag">Work</span><span class="now-text">Putting AI to real work in products at Clarivate.</span></li>
   </ul>
 </section>
@@ -352,6 +358,22 @@ fs.writeFileSync(
 <h1 class="page-title">Bookmarks</h1>
 <p class="page-lede">Cool projects, recipes, rabbit holes — my universal bookmark bar.</p>
 <div id="bookmark-list" data-src="content/bookmarks.json"></div>`,
+  })
+);
+
+// search (filters content/search-index.json entirely client-side)
+fs.writeFileSync(
+  path.join(DIST, 'search.html'),
+  page({
+    title: 'Search',
+    nav: 'search',
+    content: `
+<h1 class="page-title">Search</h1>
+<p class="page-lede">Everything I've written or bookmarked — search by word or tag.</p>
+<input id="search-input" class="search-input" type="search" placeholder="Search…" autocomplete="off" spellcheck="false">
+<div id="tag-cloud" class="tag-cloud" aria-label="Filter by tag"></div>
+<p id="search-count" class="search-count" aria-live="polite"></p>
+<div id="search-results" class="search-results" data-src="content/search-index.json"></div>`,
   })
 );
 
