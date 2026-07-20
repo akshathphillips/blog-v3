@@ -1,0 +1,42 @@
+name: Deploy blog
+
+# Auto-builds and ships the blog whenever content or the build changes on main,
+# so a post written from any device goes live on push. No AWS keys on any machine.
+on:
+  push:
+    branches: [main]
+    paths: ['content/**', 'static/**', 'build.js']
+  workflow_dispatch: {}
+
+concurrency:
+  group: blog-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build
+        run: node build.js
+        env:
+          # keeps the Cloudflare analytics beacon in the output (see CLAUDE.md)
+          CF_BEACON_TOKEN: ${{ secrets.CF_BEACON_TOKEN }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy to S3
+        # NOTE: --delete means the repo is the source of truth. Runtime-edited
+        # bucket JSON (content/glimpses.json, content/bookmarks.json) MUST be
+        # mirrored back into the repo or it gets clobbered. See CLAUDE.md.
+        run: aws s3 sync dist/ s3://akshathphillips-blog --delete
