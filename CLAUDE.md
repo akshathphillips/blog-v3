@@ -4,6 +4,17 @@ Akshath's personal site — "an online presence, not a résumé." Zero-dependenc
 Node static site generator: `build.js` reads Markdown + JSON from `content/`,
 renders `dist/`. Own tiny Markdown parser, no framework.
 
+## Start here if you're picking up the ghostwriting role
+This file is the **mechanics** reference. The role itself is documented in `docs/`:
+
+| Doc | What it covers |
+|---|---|
+| [`docs/context.md`](docs/context.md) | Who Akshath is, what the site is, the arrangement, guardrails |
+| [`docs/agent-understanding.md`](docs/agent-understanding.md) | The intake→draft→ship loop, judgment calls, publish authority, anti-patterns |
+| [`docs/writing-general.md`](docs/writing-general.md) | Craft: `life` + `software` essays |
+| [`docs/writing-avi.md`](docs/writing-avi.md) | Craft: letters to Avi |
+| [`docs/writing-strength.md`](docs/writing-strength.md) | Craft: the weekly training log |
+
 ## Voice (this is a ghostwriting repo)
 Claude drafts posts from topics/memories the author supplies. Write in his
 established voice — see existing posts in `content/posts/`:
