@@ -69,7 +69,7 @@ function markdown(src) {
     if (line.startsWith('>')) {
       const quote = [];
       while (i < lines.length && lines[i].startsWith('>')) quote.push(lines[i++].replace(/^>\s?/, ''));
-      out.push(`<blockquote><p>${inline(quote.join(' '))}</p></blockquote>`);
+      out.push(`<blockquote><p>${quote.map((l) => inline(l)).join('<br>')}</p></blockquote>`);
       continue;
     }
     if (/^\s*[-*]\s+/.test(line)) {

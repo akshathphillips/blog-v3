@@ -2,20 +2,25 @@
 title: Love you forever
 date: 2026-06-19
 section: avi
-description: A crib you wouldn't leave, a Robert Munsch book, and a World Cup that started without me.
+description: A crib you wouldn't leave, a Robert Munsch book, and the four lines I say to you every night.
 tags: avi, fatherhood, letters, books
 ---
 
-The World Cup started at three o'clock. I know that because I'd meant to watch it.
+You didn't want to come out of your crib.
 
-Twenty minutes later I was in your room instead. You had decided you were not getting out of your crib, so I stopped negotiating and went and got books.
+It was a Friday afternoon, a little past three, and you had made up your mind — you were staying in there. So I stopped trying to talk you out of it, got a stack of books, and read to you over the rail.
 
-One of them was *Love You Forever*. It's the Robert Munsch one, where a mother sings the same four lines to her son at every age of his life, and then at the end he sings them back to her. I changed the words as I read so the child in the book was you.
+One of them was *Love You Forever*. It's the Robert Munsch one, where a mother sings the same four lines to her child at every age of his life, and at the end, when she's old and small, he sings them back to her. As I read, I changed the boy in the book to you.
 
-I got to the last page and my voice went. You were watching me over the top of the book, waiting to see whether there was another one.
+> I'll love you forever,
+> I'll like you for always,
+> As long as I'm living,
+> my baby you'll be.
 
-Somewhere a tournament people had been waiting four years for was twenty minutes old. I was in a small room reading a picture book to a two-year-old who wouldn't come out of her crib, and I couldn't finish the sentence.
+I got to the last page and couldn't get through it. My voice went, and then I was crying — over a children's book, on an ordinary Friday, holding a two-year-old who just wanted to stay in her crib. You watched me over the rail, waiting to see whether there was another one.
 
-I say it to you now, every night. "I'll love you forever, I'll like you for always" — and the two lines after it. You don't know yet that it comes from a book. For a while it's just the thing your papa says at the end of the day.
+I say those four lines to you now, every night. You don't know yet that they come from a book, or that the first time I read them to you I cried. For now it's just the thing your papa says before you go to sleep.
+
+Somewhere out there a tournament the whole world had waited four years for had kicked off twenty minutes earlier. I didn't see a minute of it. I haven't been sorry once.
 
 — Papa
