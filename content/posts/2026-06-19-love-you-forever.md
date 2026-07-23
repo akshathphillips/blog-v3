@@ -21,6 +21,4 @@ I got to the last page and couldn't get through it. My voice went, and then I wa
 
 I say those four lines to you now, every night. You don't know yet that they come from a book, or that the first time I read them to you I cried. For now it's just the thing your papa says before you go to sleep.
 
-Somewhere out there a tournament the whole world had waited four years for had kicked off twenty minutes earlier. I didn't see a minute of it. I haven't been sorry once.
-
 — Papa
