@@ -10,7 +10,7 @@ You didn't want to come out of your crib.
 
 It was a Friday afternoon, a little past three, and you had made up your mind — you were staying in there. So I stopped trying to talk you out of it, got a stack of books, and read to you over the rail.
 
-One of them was *Love You Forever*. It's the Robert Munsch one, where a mother sings the same four lines to her child at every age of his life, and at the end, when she's old and small, he sings them back to her. As I read, I changed the boy in the book to you.
+One of them was *Love You Forever*. It's the Robert Munsch one, where a parent sings the same four lines to their child at every age of that child's life, and at the end, grown old, gets them sung back.
 
 > I'll love you forever,
 > I'll like you for always,
