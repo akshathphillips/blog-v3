@@ -6,7 +6,7 @@ description: A promise made before you were born, the last of your milk, and the
 tags: avi, fatherhood, letters
 ---
 
-Before you were born — when your mom was still pregnant with you — I told her I couldn't wait to cuddle with my daughter.
+Before you were born, when your mom was still pregnant with you, I told her I couldn't wait to cuddle with my daughter.
 
 It turns out I could wait. It took two and a half years.
 
@@ -20,6 +20,6 @@ A minute later you turned your head to check on me. "Papa, eyes closed?" Then, i
 
 So I closed my eyes. You were asleep a few minutes after that.
 
-That was the thing I'd been waiting on since before I ever met you, and you handed it over like it was nothing — like it was just what people do after milk.
+That was the thing I'd been waiting on since before I ever met you, and you handed it over like it was nothing, like it was just what people do after milk.
 
-— Papa
+Papa

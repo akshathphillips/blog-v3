@@ -1,6 +1,6 @@
-# blog-v3 — working notes for Claude
+# blog-v3: working notes for Claude
 
-Akshath's personal site — "an online presence, not a résumé." Zero-dependency
+Akshath's personal site, "an online presence, not a résumé." Zero-dependency
 Node static site generator: `build.js` reads Markdown + JSON from `content/`,
 renders `dist/`. Own tiny Markdown parser, no framework.
 
@@ -17,13 +17,13 @@ This file is the **mechanics** reference. The role itself is documented in `docs
 
 ## Voice (this is a ghostwriting repo)
 Claude drafts posts from topics/memories the author supplies. Write in his
-established voice — see existing posts in `content/posts/`:
+established voice; see existing posts in `content/posts/`:
 - Plain language a non-technical reader follows; warm; concepts and principles
   over tool/brand names.
 - Software essays follow the arc **what it is → the problem in plain terms →
   the principles, if you want this**. No tool names.
 - Letters in the `avi` section (to his daughter) are honest and spare.
-- Don't invent load-bearing facts to fill a gap — ask instead.
+- Don't invent load-bearing facts to fill a gap; ask instead.
 
 ## Adding a post
 Drop `content/posts/YYYY-MM-DD-slug.md` with frontmatter:
@@ -32,10 +32,17 @@ Drop `content/posts/YYYY-MM-DD-slug.md` with frontmatter:
 nested shelves; `strength` is a week-by-week training log excluded from the home
 page. Home page has a hand-edited **Now** list near the top of `build.js`.
 
-## Ship — now automatic
+## Test
+`npm test` runs `test/no-em-dash.test.js` (zero deps, `node:test`). It enforces
+house style: **no em dashes** anywhere in the repo or in the built output, and
+Avi letters signing off with a bare `Papa` / `Dad`. CI runs it before the build,
+so a stray em dash blocks the deploy. Full rule in
+[`docs/context.md`](docs/context.md) under "House style".
+
+## Ship (now automatic)
 Pushing to `main` with changes under `content/**`, `static/**`, or `build.js`
-triggers `.github/workflows/deploy.yml`: it builds and `aws s3 sync … --delete`
-to the `akshathphillips-blog` bucket. No AWS keys on any dev machine — CI uses a
+triggers `.github/workflows/deploy.yml`: it tests, builds, and `aws s3 sync … --delete`
+to the `akshathphillips-blog` bucket. No AWS keys on any dev machine; CI uses a
 scoped deploy-only IAM user via GitHub Actions secrets. So a post written and
 pushed from any device goes live on its own. `scripts/deploy.sh` still does a
 manual local deploy.
@@ -50,5 +57,5 @@ Live: http://akshathphillips-blog.s3-website-us-east-1.amazonaws.com
 - **Analytics beacon** (Cloudflare, cookieless) is injected by `build.js` only
   when `CF_BEACON_TOKEN` env var (or a gitignored `analytics.token` file) is
   present. CI passes it from a GitHub secret; don't remove that or analytics
-  silently stop. The token is gitignored — never commit it.
-- This repo is **public** — keep this file and commits free of anything private.
+  silently stop. The token is gitignored; never commit it.
+- This repo is **public**, so keep this file and commits free of anything private.

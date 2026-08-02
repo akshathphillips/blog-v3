@@ -1,4 +1,4 @@
-# Context — the standing brief
+# Context: the standing brief
 
 Read this first. It's the *who and why*. The **mechanics** (frontmatter, build,
 ship, gotchas) live in [`../CLAUDE.md`](../CLAUDE.md) and are not repeated here.
@@ -8,7 +8,7 @@ Last synced: 2026-07-21.
 
 ## The arrangement
 
-Akshath supplies loose thoughts — a topic, a memory, a voice-note-shaped run-on
+Akshath supplies loose thoughts: a topic, a memory, a voice-note-shaped run-on
 sentence. The agent turns them into finished, published pages on his site. He is
 not reviewing drafts line by line; he gave standing publish authority on
 2026-07-09 ("you can always publish"). See `agent-understanding.md` for how that
@@ -16,19 +16,19 @@ authority is meant to be used, and where it stops.
 
 The point of the arrangement: versions one and two of this site died because the
 framework was the interesting part and the writing never happened. The whole
-design of v3 — and of this agent — exists to make the writing the only thing
+design of v3, and of this agent, exists to make the writing the only thing
 that takes effort, and to make even that effort small.
 
 ## Who he is
 
 Identity-first, job-title-never. The site subtitle is **"Husband. Dad. And,
-occasionally, software."** — deliberately self-deprecating about the software
+occasionally, software."**, deliberately self-deprecating about the software
 part. He is:
 
 - A husband, and dad to **Avi** (~2 years old, "the teachable twos").
 - Based in Washington, DC.
 - At **Clarivate**, leading AI-powered development and applications.
-- Training seriously — "for my ladies" — working toward ~20% body fat by 35.
+- Training seriously, "for my ladies," working toward ~20% body fat by 35.
 - Building **YAFA**, a small local-first workout app, and an iOS game.
 
 He likes plain-language writing about technical work: concepts and principles,
@@ -40,7 +40,7 @@ safe to write down here. See "Guardrails" below.
 
 ## What the site is
 
-"An online presence, not a résumé." Not a portfolio either — he has LinkedIn and
+"An online presence, not a résumé." Not a portfolio either; he has LinkedIn and
 GitHub for those. This is a *place*: writing, photos, bookmarks, and a shelf of
 letters for his daughter.
 
@@ -55,7 +55,7 @@ Four writing streams, set by frontmatter `section:`
 
 `life` + `software` are flat and grouped on the Writing index; `avi` and
 `strength` are nested shelves with their own index pages. Only `life` +
-`software` appear in "Recent writing" on the home page — the training log is
+`software` appear in "Recent writing" on the home page; the training log is
 explicitly "mostly for me."
 
 Plus three non-post surfaces: **Glimpses** (photo grid, currently empty →
@@ -71,6 +71,23 @@ over posts + bookmarks, filterable by tag).
 - Analytics: Cloudflare Web Analytics, live, cookieless.
 - Not yet done, not yet asked for: custom domain + HTTPS via CloudFront.
 
+## House style
+
+**No em dashes.** Not in posts, not in docs, not in code comments, not in
+anything the build emits. Use a comma, a colon, a semicolon, parentheses, or a
+full stop, whichever the sentence actually wants. A sentence that seems to need
+an em dash is usually two sentences.
+
+This is enforced, not aspirational: `test/no-em-dash.test.js` scans the repo and
+fails the build in CI, so a stray em dash blocks the deploy. Run `npm test`
+before pushing. En dashes in numeric ranges (`3–4x`, `150–350 words`) are fine
+and are not what the rule is about.
+
+Knock-on conventions, already applied:
+
+- Avi letters sign off with a bare `Papa` / `Dad` on the last line, no dash.
+- Strength log titles use a colon: `Week 1: the starting line`.
+
 ## Guardrails
 
 1. **This repo is public.** These docs, commit messages, and post content are
@@ -81,7 +98,7 @@ over posts + bookmarks, filterable by tag).
 2. **Never invent a load-bearing fact.** Not a weight lifted, not a date, not a
    quote from a two-year-old, not a technical detail of something he built. If
    it matters and you don't have it, ask. This is the fastest way to lose the
-   arrangement — a fabricated detail in a letter to his daughter is worse than
+   arrangement; a fabricated detail in a letter to his daughter is worse than
    no letter.
 3. **The repo is the source of truth.** Deploys use `aws s3 sync --delete`. See
    CLAUDE.md for the Glimpses/Bookmarks mirroring gotcha.

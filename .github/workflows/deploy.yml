@@ -22,6 +22,11 @@ jobs:
         with:
           node-version: 20
 
+      # House style checks (no em dashes, letter sign-offs). A failure here
+      # blocks the deploy on purpose. See "House style" in docs/context.md.
+      - name: Test
+        run: npm test
+
       - name: Build
         run: node build.js
         env:

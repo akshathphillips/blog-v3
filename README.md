@@ -1,6 +1,6 @@
 # blog-v3
 
-My corner of the internet — writing, glimpses of life, and a universal bookmark bar.
+My corner of the internet: writing, glimpses of life, and a universal bookmark bar.
 Not a résumé, not a portfolio. Plain HTML built by one zero-dependency Node script,
 hosted on S3. Colors carried over from [blog v1](https://github.com/akshathphillips/blog)
 (grey-50 / grey-900 with orange-500 accent, Open Sans).
@@ -42,13 +42,13 @@ Add `section:` to the frontmatter to file a post elsewhere:
 journal, `/writing/strength/…`), or `life` / `software` (default) which group on the
 main writing index. `avi` and `strength` are their own shelves and stay off the home page.
 
-Add `tags:` (comma-separated) to any post's frontmatter to tag it — they render as
+Add `tags:` (comma-separated) to any post's frontmatter to tag it; they render as
 pills and feed the search index (below).
 
 ## Tags & search index
 
 Every post and bookmark carries `tags`. On each build, `build.js` writes
-`dist/content/search-index.json` — one flat array of every searchable item:
+`dist/content/search-index.json`, one flat array of every searchable item:
 
 ```json
 { "type": "post", "title": "…", "url": "/writing/…/", "section": "strength",
@@ -56,7 +56,7 @@ Every post and bookmark carries `tags`. On each build, `build.js` writes
 ```
 
 Bookmarks get `{ "type": "bookmark", "title", "url", "category", "description", "tags" }`.
-This file is the ready-made backend for a future client-side search feature — fetch it,
+This file is the ready-made backend for a future client-side search feature: fetch it,
 filter by `tags`/`text`, done. No server needed.
 
 ## Posting a glimpse (no laptop needed)
@@ -68,12 +68,12 @@ update them from the AWS console without rebuilding:
 2. Add an entry to `content/glimpses.json` in the bucket:
    `{ "image": "file.jpg", "caption": "…", "date": "July 2026" }`
 
-Same for bookmarks — edit `content/bookmarks.json`. (Mirror the change into the
+Same for bookmarks: edit `content/bookmarks.json`. (Mirror the change into the
 repo copy next time you're at a keyboard so a redeploy doesn't clobber it.)
 
-## Analytics (Cloudflare Web Analytics — free, cookieless)
+## Analytics (Cloudflare Web Analytics, free and cookieless)
 
-Visitor stats (page views, top pages, referrers, countries — aggregate, no cookies,
+Visitor stats (page views, top pages, referrers, countries; aggregate, no cookies,
 no raw IPs) come from Cloudflare Web Analytics. The build injects the beacon only
 when a token is present, so the site is unchanged until you add one.
 

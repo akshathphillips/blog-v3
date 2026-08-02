@@ -5,11 +5,11 @@
       {
         "title": "anime.js",
         "url": "https://animejs.com",
-        "note": "The animation library I keep coming back to — used it for a scroll-driven hero recently.",
+        "note": "The animation library I keep coming back to. Used it for a scroll-driven hero recently.",
         "tags": ["animation", "javascript", "web", "tools"]
       },
       {
-        "title": "Bartosz Ciechanowski — interactive essays",
+        "title": "Bartosz Ciechanowski: interactive essays",
         "url": "https://ciechanow.ski",
         "note": "The gold standard for explaining how things work. The GPS and mechanical watch ones are unreal.",
         "tags": ["writing", "interactive", "learning", "inspiration"]
@@ -20,7 +20,7 @@
     "category": "Recipes",
     "links": [
       {
-        "title": "Serious Eats — Food Lab",
+        "title": "Serious Eats: Food Lab",
         "url": "https://www.seriouseats.com/the-food-lab",
         "note": "Recipes that explain the why, not just the what.",
         "tags": ["cooking", "recipes", "food"]

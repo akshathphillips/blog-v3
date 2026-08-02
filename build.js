@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * blog-v3 build script — zero dependencies.
+ * blog-v3 build script, zero dependencies.
  *
  * content/posts/*.md  -> dist/writing/<slug>/index.html (one page per post)
  * content/*.json      -> dist/content/ (fetched at runtime by glimpses/bookmarks,
@@ -111,7 +111,7 @@ function page({ title, nav, content, depth = 0, description = '' }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${title ? `${title} — ` : ''}${SITE.title}</title>
+<title>${title ? `${title} - ` : ''}${SITE.title}</title>
 ${description ? `<meta name="description" content="${escapeHtml(description)}">` : ''}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -179,7 +179,7 @@ for (const f of fs.readdirSync(path.join(ROOT, 'content'))) {
 }
 fs.cpSync(path.join(ROOT, 'content', 'glimpses'), path.join(DIST, 'content', 'glimpses'), { recursive: true });
 
-// posts — frontmatter `section:` sorts a post into life | software | avi | strength
+// posts: frontmatter `section:` sorts a post into life | software | avi | strength
 // (default: software). `avi` and `strength` are their own shelves nested under
 // /writing/<section>/; life + software stay flat and are grouped on the index.
 const NESTED = ['avi', 'strength'];
@@ -258,7 +258,7 @@ fs.writeFileSync(
     depth: 1,
     content: `
 <h1 class="page-title">Writing</h1>
-<p class="page-lede">Stories from my life, and things I've built — written for humans, not just engineers.</p>
+<p class="page-lede">Stories from my life, and things I've built, written for humans, not just engineers.</p>
 ${lifePosts.length ? `<h2 class="section-title">Life</h2>\n${postList(lifePosts, '../')}` : ''}
 ${softwarePosts.length ? `<h2 class="section-title">Software / Science</h2>\n${postList(softwarePosts, '../')}` : ''}
 <section class="writing-callout">
@@ -281,7 +281,7 @@ fs.writeFileSync(
     depth: 2,
     content: `
 <h1 class="page-title">For Avi</h1>
-<p class="page-lede">Letters to my daughter — for her to read whenever she's ready.</p>
+<p class="page-lede">Letters to my daughter, for her to read whenever she's ready.</p>
 ${postList(aviPosts, '../../')}
 <p class="post-back"><a href="../index.html">← all writing</a></p>`,
   })
@@ -297,7 +297,7 @@ fs.writeFileSync(
     depth: 2,
     content: `
 <h1 class="page-title">Strength journal</h1>
-<p class="page-lede">A week-by-week training log — reps, wins, and honest notes on the way to ~20% by 35.</p>
+<p class="page-lede">A week-by-week training log: reps, wins, and honest notes on the way to ~20% by 35.</p>
 ${strengthPosts.length ? postList(strengthPosts, '../../') : '<p class="coming-soon">First week coming soon…</p>'}
 <p class="post-back"><a href="../index.html">← all writing</a></p>`,
   })
@@ -311,7 +311,7 @@ fs.writeFileSync(
     nav: 'home',
     content: `
 <section class="intro">
-  <p>Hi, I'm Akshath. This is my corner of the internet — not a résumé, not a portfolio.
+  <p>Hi, I'm Akshath. This is my corner of the internet. Not a résumé, not a portfolio.
   I write about my life and the things I build, keep <a href="glimpses.html">glimpses</a> of
   what I've been up to, and hoard <a href="bookmarks.html">bookmarks</a> worth keeping.
   There's also a shelf of <a href="writing/avi/index.html">letters for my daughter, Avi</a>.</p>
@@ -323,9 +323,9 @@ fs.writeFileSync(
     <span class="now-meta">as of ${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
   </div>
   <ul class="now-list">
-    <li><span class="now-tag">Body</span><span class="now-text">Strength training for my ladies — working towards ~20% body fat by 35.</span></li>
+    <li><span class="now-tag">Body</span><span class="now-text">Strength training for my ladies, working towards ~20% body fat by 35.</span></li>
     <li><span class="now-tag">Home</span><span class="now-text">Navigating the teachable twos with Avi. Humbling, mostly.</span></li>
-    <li><span class="now-tag">Tinker</span><span class="now-text">Building YAFA — a little workout app that remembers your lifts so you don't have to.</span></li>
+    <li><span class="now-tag">Tinker</span><span class="now-text">Building YAFA, a little workout app that remembers your lifts so you don't have to.</span></li>
     <li><span class="now-tag">Work</span><span class="now-text">Putting AI to real work in products at Clarivate.</span></li>
   </ul>
 </section>
@@ -356,7 +356,7 @@ fs.writeFileSync(
     nav: 'bookmarks',
     content: `
 <h1 class="page-title">Bookmarks</h1>
-<p class="page-lede">Cool projects, recipes, rabbit holes — my universal bookmark bar.</p>
+<p class="page-lede">Cool projects, recipes, rabbit holes: my universal bookmark bar.</p>
 <div id="bookmark-list" data-src="content/bookmarks.json"></div>`,
   })
 );
@@ -369,7 +369,7 @@ fs.writeFileSync(
     nav: 'search',
     content: `
 <h1 class="page-title">Search</h1>
-<p class="page-lede">Everything I've written or bookmarked — search by word or tag.</p>
+<p class="page-lede">Everything I've written or bookmarked. Search by word or tag.</p>
 <input id="search-input" class="search-input" type="search" placeholder="Search…" autocomplete="off" spellcheck="false">
 <div id="tag-cloud" class="tag-cloud" aria-label="Filter by tag"></div>
 <p id="search-count" class="search-count" aria-live="polite"></p>
@@ -383,7 +383,7 @@ fs.writeFileSync(
   page({ title: 'Not found', nav: '', content: `<h1 class="page-title">404</h1><p>Nothing here. <a href="index.html">Go home.</a></p>` })
 );
 
-// search index — one JSON of every searchable item (posts + bookmarks) with
+// search index: one JSON of every searchable item (posts + bookmarks) with
 // its tags and plain text, ready for a client-side search feature to fetch.
 const stripMd = (s) =>
   s

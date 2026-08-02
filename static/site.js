@@ -7,7 +7,7 @@ document.getElementById('theme-toggle').addEventListener('click', () => {
   localStorage.setItem('theme', dark ? 'light' : 'dark');
 });
 
-// glimpses — rendered from content/glimpses.json so new images can be
+// glimpses: rendered from content/glimpses.json so new images can be
 // dropped into the bucket without a rebuild
 const glimpseGrid = document.getElementById('glimpse-grid');
 if (glimpseGrid) {
@@ -33,7 +33,7 @@ if (glimpseGrid) {
     });
 }
 
-// bookmarks — rendered from content/bookmarks.json, same idea
+// bookmarks: rendered from content/bookmarks.json, same idea
 const bookmarkList = document.getElementById('bookmark-list');
 if (bookmarkList) {
   fetch(bookmarkList.dataset.src)
@@ -69,7 +69,7 @@ if (bookmarkList) {
     });
 }
 
-// search — filters content/search-index.json client-side; supports ?q= and ?tag=
+// search: filters content/search-index.json client-side; supports ?q= and ?tag=
 const searchResults = document.getElementById('search-results');
 if (searchResults) {
   const input = document.getElementById('search-input');
