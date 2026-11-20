@@ -10,7 +10,7 @@ Starting a training log, mostly to keep myself honest. Motivation is a liar; a r
 
 ## Why
 
-Two reasons, and they're both at home. I want to be strong for my ladies, and I want to still be the dad who can keep up with Avi twenty years from now. Somewhere in there is a number, working toward ~20% body fat by my 35th birthday, but the number is just a proxy for the real goal: a body that holds up.
+Two reasons, and they're both at home. I want to be strong for my ladies, and I want to still be the dad who can keep up with Avi twenty years from now. This isn't about hitting a number by a date. It's a journey to better fitness and health, and the real goal is simple: a body that holds up.
 
 ## The plan, kept boring
 

@@ -297,7 +297,7 @@ fs.writeFileSync(
     depth: 2,
     content: `
 <h1 class="page-title">Strength journal</h1>
-<p class="page-lede">A week-by-week training log: reps, wins, and honest notes on the way to ~20% by 35.</p>
+<p class="page-lede">A week-by-week training log: reps, wins, and honest notes on a journey to better fitness and health.</p>
 ${strengthPosts.length ? postList(strengthPosts, '../../') : '<p class="coming-soon">First week coming soon…</p>'}
 <p class="post-back"><a href="../index.html">← all writing</a></p>`,
   })
@@ -323,7 +323,7 @@ fs.writeFileSync(
     <span class="now-meta">as of ${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
   </div>
   <ul class="now-list">
-    <li><span class="now-tag">Body</span><span class="now-text">Strength training for my ladies, working towards ~20% body fat by 35.</span></li>
+    <li><span class="now-tag">Body</span><span class="now-text">Strength training for my ladies, on a journey to better fitness and health.</span></li>
     <li><span class="now-tag">Home</span><span class="now-text">Navigating the teachable twos with Avi. Humbling, mostly.</span></li>
     <li><span class="now-tag">Tinker</span><span class="now-text">Building YAFA, a little workout app that remembers your lifts so you don't have to.</span></li>
     <li><span class="now-tag">Work</span><span class="now-text">Putting AI to real work in products at Clarivate.</span></li>

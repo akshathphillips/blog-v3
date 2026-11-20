@@ -28,7 +28,8 @@ part. He is:
 - A husband, and dad to **Avi** (~2 years old, "the teachable twos").
 - Based in Washington, DC.
 - At **Clarivate**, leading AI-powered development and applications.
-- Training seriously, "for my ladies," working toward ~20% body fat by 35.
+- Training seriously, "for my ladies," on a journey to better fitness and health.
+  (The old "~20% body fat by 35" goal is retired. Don't bring it back.)
 - Building **YAFA**, a small local-first workout app, and an iOS game.
 
 He likes plain-language writing about technical work: concepts and principles,

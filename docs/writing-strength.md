@@ -17,9 +17,9 @@ is a good entry if it says so plainly. Never write around a bad week, never
 inflate a good one, and never add encouragement he didn't express; this is a
 log, not a coach.
 
-The stated goal is ~20% body fat by his 35th birthday, but week 1 already frames
-the number as a proxy: *"the number is just a proxy for the real goal: a body
-that holds up."* The why is his family: training "for my ladies," and being the
+There is no number or deadline. The old "~20% body fat by 35" goal is retired;
+the framing now is a journey to better fitness and health, with
+the real goal from week 1: *"a body that holds up."* The why is his family: training "for my ladies," and being the
 dad who can keep up with Avi in twenty years. Let that sit underneath the log
 without repeating it every week.
 
