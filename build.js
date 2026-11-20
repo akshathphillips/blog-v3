@@ -257,13 +257,6 @@ const postList = (list, base) =>
     )
     .join('')}</ul>`;
 
-// a short hand-written note shown under the lede on Writing and For Avi.
-// Dated by hand on purpose; set to '' to remove it.
-const BACK_NOTE = `<aside class="page-note">
-  <span class="page-note-date">November 2026</span>
-  <p>It's been a busy summer and fall with Avi, and the writing went quiet. I finally have some time for myself again, so I'm coming back to this.</p>
-</aside>`;
-
 // writing index
 fs.writeFileSync(
   path.join(DIST, 'writing', 'index.html'),
@@ -274,7 +267,6 @@ fs.writeFileSync(
     content: `
 <h1 class="page-title">Writing</h1>
 <p class="page-lede">Stories from my life, and things I've built, written for humans, not just engineers.</p>
-${BACK_NOTE}
 ${lifePosts.length ? `<h2 class="section-title">Life</h2>\n${postList(lifePosts, '../')}` : ''}
 ${softwarePosts.length ? `<h2 class="section-title">Software / Science</h2>\n${postList(softwarePosts, '../')}` : ''}
 <section class="writing-callout">
@@ -298,7 +290,6 @@ fs.writeFileSync(
     content: `
 <h1 class="page-title">For Avi</h1>
 <p class="page-lede">Letters to my daughter, for her to read whenever she's ready.</p>
-${BACK_NOTE}
 ${postList(aviPosts, '../../')}
 <p class="post-back"><a href="../index.html">← all writing</a></p>`,
   })
