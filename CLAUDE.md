@@ -42,12 +42,21 @@ so a stray em dash blocks the deploy. Full rule in
 ## Ship (now automatic)
 Pushing to `main` with changes under `content/**`, `static/**`, or `build.js`
 triggers `.github/workflows/deploy.yml`: it tests, builds, and `aws s3 sync … --delete`
-to the `akshathphillips-blog` bucket. No AWS keys on any dev machine; CI uses a
+to the `akshathphillips-blog` bucket, then clears the CloudFront cache. CI uses a
 scoped deploy-only IAM user via GitHub Actions secrets. So a post written and
 pushed from any device goes live on its own. `scripts/deploy.sh` still does a
 manual local deploy.
 
-Live: http://akshathphillips-blog.s3-website-us-east-1.amazonaws.com
+Live: https://www.akshathphillips.com
+
+Hosting: CloudFront (`EQN2AJKUYY6HI`) in front of the bucket's S3 website
+endpoint, with an ACM certificate for both names. DNS stays at Squarespace
+(DNSSEC on): `www` is a CNAME to the CloudFront domain, and the bare domain uses
+a Squarespace forwarding rule (301, paths kept) to `https://www.`. Squarespace
+won't allow an ALIAS record while DNSSEC is on. A CloudFront Function
+(`blog-bare-to-www`) also 301s the bare domain to `www`, ready if the bare
+domain is ever pointed at CloudFront directly. The raw S3 website URL still
+works but is plain http.
 
 ## Gotchas
 - **`--delete` means the repo is the source of truth.** Glimpses and Bookmarks

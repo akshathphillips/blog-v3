@@ -45,3 +45,8 @@ jobs:
         # bucket JSON (content/glimpses.json, content/bookmarks.json) MUST be
         # mirrored back into the repo or it gets clobbered. See CLAUDE.md.
         run: aws s3 sync dist/ s3://akshathphillips-blog --delete
+
+      - name: Clear CloudFront cache
+        # www.akshathphillips.com is served through CloudFront, which caches
+        # pages; clear it so a new post shows up right away.
+        run: aws cloudfront create-invalidation --distribution-id EQN2AJKUYY6HI --paths "/*"

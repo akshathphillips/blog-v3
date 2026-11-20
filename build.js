@@ -16,7 +16,7 @@ const DIST = path.join(ROOT, 'dist');
 const SITE = {
   title: 'Akshath Phillips',
   subtitle: 'Husband. Dad. And, occasionally, software.',
-  url: '',
+  url: 'https://www.akshathphillips.com',
 };
 
 // Cloudflare Web Analytics beacon token (free, cookieless).

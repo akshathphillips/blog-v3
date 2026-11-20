@@ -65,12 +65,12 @@ over posts + bookmarks, filterable by tag).
 
 ## Current state
 
-- Live: http://akshathphillips-blog.s3-website-us-east-1.amazonaws.com
+- Live: https://www.akshathphillips.com (bare domain redirects to `www`)
 - Repo: https://github.com/akshathphillips/blog-v3 (**public**)
 - Push to `main` → GitHub Actions builds and deploys. No manual step.
 - 9 posts across the four sections; Glimpses awaiting real photos.
 - Analytics: Cloudflare Web Analytics, live, cookieless.
-- Not yet done, not yet asked for: custom domain + HTTPS via CloudFront.
+- Custom domain + HTTPS via CloudFront since 2026-11-19; DNS at Squarespace.
 
 ## House style
 

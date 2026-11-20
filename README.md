@@ -5,7 +5,7 @@ Not a résumé, not a portfolio. Plain HTML built by one zero-dependency Node sc
 hosted on S3. Colors carried over from [blog v1](https://github.com/akshathphillips/blog)
 (grey-50 / grey-900 with orange-500 accent, Open Sans).
 
-**Live:** http://akshathphillips-blog.s3-website-us-east-1.amazonaws.com
+**Live:** https://www.akshathphillips.com
 
 ## Layout
 

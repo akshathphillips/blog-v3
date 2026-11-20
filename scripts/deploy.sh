@@ -7,4 +7,5 @@ BUCKET="${1:-akshathphillips-blog}"
 
 node build.js
 aws s3 sync dist/ "s3://$BUCKET" --delete
-echo "Deployed → http://$BUCKET.s3-website-us-east-1.amazonaws.com"
+aws cloudfront create-invalidation --distribution-id EQN2AJKUYY6HI --paths "/*" >/dev/null
+echo "Deployed → https://www.akshathphillips.com"
