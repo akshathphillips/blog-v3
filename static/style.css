@@ -295,6 +295,26 @@ a.tag:hover {
 .writing-callout .section-title { margin: 0 0 6px; }
 .writing-callout p { margin: 0; color: var(--text-soft); }
 
+/* hand-written note under a page lede */
+.page-note {
+  margin: 24px 0 8px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+}
+.page-note-date {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  margin-bottom: 4px;
+}
+.page-note p { margin: 0; }
+
 /* glimpses */
 .glimpse-grid {
   display: grid;
