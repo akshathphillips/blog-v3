@@ -3,11 +3,14 @@
 A week-by-week training log on its own shelf at `/writing/strength/`. Deliberately
 **excluded from the home page's "Recent writing"**; it's "mostly for me."
 
-Reference post: *Week 1: the starting line*.
+**Status:** the log restarts with Week 1 in the week of Monday 2026-11-23. The
+original July kickoff post was removed after months of silence; its text is
+in git history at commit be22c3f if you need it. Until the new
+Week 1 lands, the shelf shows "First week coming soon…".
 
 ## What this log is for
 
-Stated in week 1, and it governs everything: *"Motivation is a liar; a record
+Stated in the original kickoff, and it still governs everything: *"Motivation is a liar; a record
 isn't."* The job of each entry is to make self-deception impossible later:
 future-Akshath can't pretend the work happened when it didn't, or forget it when
 it did.
@@ -19,23 +22,23 @@ log, not a coach.
 
 There is no number or deadline. The old "~20% body fat by 35" goal is retired;
 the framing now is a journey to better fitness and health, with
-the real goal from week 1: *"a body that holds up."* The why is his family: training "for my ladies," and being the
+the real goal: *"a body that holds up."* The why is his family: training "for my ladies," and being the
 dad who can keep up with Avi in twenty years. Let that sit underneath the log
 without repeating it every week.
 
 ## Shape of a weekly entry
 
-Week 1 set the template; later weeks are lighter. A typical entry:
+The new Week 1 sets the template; later weeks are lighter. A typical entry:
 
 - **A short opening**: how the week actually went, in a sentence or two.
 - **What happened**: sessions hit vs. planned, the lifts that moved, anything
   that got in the way (travel, the toddler, sleep).
 - **The numbers**: only the ones he gives. See below.
-- **`## Next week`**: one concrete assignment. Week 1's is the model: *"Show up
+- **`## Next week`**: one concrete assignment. The original kickoff's is the model: *"Show up
   four times. Log every session. That's the whole assignment."*
 
-Week 1 also carried `## Why`, `## The plan, kept boring`, and `## Baseline`;
-those were one-time scaffolding. Don't re-litigate the why every week.
+The new Week 1 can carry one-time scaffolding (`## Why`, `## The plan`,
+`## Baseline`), using only what he actually sends; after that it's done. Don't re-litigate the why every week.
 
 ## Numbers: the biggest risk in this section
 

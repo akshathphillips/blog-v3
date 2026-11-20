@@ -87,7 +87,7 @@ and are not what the rule is about.
 Knock-on conventions, already applied:
 
 - Avi letters sign off with a bare `Papa` / `Dad` on the last line, no dash.
-- Strength log titles use a colon: `Week 1: the starting line`.
+- Strength log titles use a colon: `Week 1: <short phrase>`.
 
 ## Guardrails
 
