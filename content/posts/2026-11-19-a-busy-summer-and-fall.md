@@ -14,6 +14,8 @@ Not because nothing happened. It's been a busy summer and fall, and most of what
 
 I finally have a little time for myself again, and the first thing I want to do with it is come back here.
 
+Hopefully by the time you read this, I've gone back through my journal and moved those memories in here too, where they belong.
+
 More letters soon.
 
 Papa
