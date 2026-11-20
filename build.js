@@ -29,6 +29,14 @@ const ANALYTICS_TOKEN = (() => {
   return '';
 })();
 
+// Cache-busting: each asset URL carries a short hash of the file's contents,
+// so a changed stylesheet or script gets a new URL and browsers fetch it fresh
+// instead of reusing a stale copy.
+const assetVersion = (f) =>
+  require('crypto').createHash('sha1').update(fs.readFileSync(path.join(ROOT, 'static', f))).digest('hex').slice(0, 8);
+const CSS_V = assetVersion('style.css');
+const JS_V = assetVersion('site.js');
+
 /* ---------------- markdown ---------------- */
 
 function escapeHtml(s) {
@@ -116,7 +124,7 @@ ${description ? `<meta name="description" content="${escapeHtml(description)}">`
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="${p}assets/style.css">
+<link rel="stylesheet" href="${p}assets/style.css?v=${CSS_V}">
 <script>
 // apply saved theme before first paint
 (function () {
@@ -148,7 +156,7 @@ ${content}
     ANALYTICS_TOKEN ? ' · privacy-friendly, cookieless analytics' : ''
   }</p>
 </footer>
-<script src="${p}assets/site.js"></script>${
+<script src="${p}assets/site.js?v=${JS_V}"></script>${
     ANALYTICS_TOKEN
       ? `\n<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${ANALYTICS_TOKEN}"}'></script>`
       : ''
