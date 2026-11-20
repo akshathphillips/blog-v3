@@ -5,7 +5,7 @@ description: Why I turned a one-off AI pipeline into a shared service any team c
 tags: ai, architecture, pipelines, systems, backend
 ---
 
-In May I wrote about an assembly line for AI enrichment: four small workers that take a mountain of records, send them to an AI, and write the answers back. It worked. Then the next AI job showed up, and the one after that was already in sight.
+In May I wrote about [an assembly line for AI enrichment](../an-assembly-line-for-ai-enrichment/index.html): four small workers that take a mountain of records, send them to an AI, and write the answers back. It worked. Then the next AI job showed up, and the one after that was already in sight.
 
 One was a second pass over text that a machine had already read off scanned pages, to fix what the first pass got wrong. Further out: translation, and repairing broken links. Different jobs, same shape every time. A pile of documents, an AI that answers *later*, and results that have to land back in exactly the right place.
 
